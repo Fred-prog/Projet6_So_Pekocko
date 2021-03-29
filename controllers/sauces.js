@@ -36,28 +36,20 @@ exports.likeSauce = (req, res, next) => {
                   if (likerId == element) {
                     sauce.dislikes--;
                     sauce.userDisliked.splice(element, 1);
-                    console.log("ID restant :" + sauce.userDisliked);
                     sauce.likes++;
                     sauce.userLiked.push(likerId);
-                    console.log("ID ajouté :" + sauce.userLiked);
-                    console.log("changement du dislike en like !");
                   } else {
                     sauce.likes++;
                     sauce.userLiked.push(likerId);
-                    console.log("un like OK");
-                    console.log(sauce.userLiked.length);
                   }
                 });
                 } else {
                   sauce.userLiked.forEach(element => {
                     if (likerId == element) {
                       sauce.likes + 0;
-                      console.log("Vous avez déjà liké");
                     } else {
                       sauce.likes++;
                       sauce.userLiked.push(likerId);
-                      console.log("un like OK");
-                      console.log(sauce.userLiked.length);
                     }
                   })
                 }
@@ -76,28 +68,20 @@ exports.likeSauce = (req, res, next) => {
                   if (likerId == element) {
                     sauce.likes--;
                     sauce.userLiked.splice(index, 1);
-                    console.log("ID restant :" + sauce.userLiked);
                     sauce.dislikes++;
                     sauce.userDisliked.push(likerId);
-                    console.log("ID ajouté :" + sauce.userDisliked);
-                    console.log("changement du like en dislike !");
                   } else {
                     sauce.dislikes++;
                     sauce.userDisliked.push(likerId);
-                    console.log("un like OK");
-                    console.log(sauce.userDisliked.length);
                   }
                 });
               } else {
                 sauce.userDisliked.forEach(function ( element, index) {
                   if (likerId == element) {
                     sauce.dislikes + 0;
-                    console.log("Vous avez déjà disliké");
                   } else {
                     sauce.dislikes++;
                     sauce.userDisliked.push(likerId);
-                    console.log("un dislike OK");
-                    console.log(sauce.userDisliked.length);
                   }
                 })
               }
@@ -113,17 +97,13 @@ exports.likeSauce = (req, res, next) => {
                   if (likerId == element) {
                     sauce.dislikes--;
                     sauce.userDisliked.splice(index, 1);
-                    console.log("ID restant :" + sauce.userDisliked);
-                    console.log("une remise à 0 OK ");
                   }
                 });
               } else if (sauce.userDisliked.length == '0') {
                   sauce.userLiked.forEach(function ( element, index){
                     if (likerId == element) {
                       sauce.likes--;
-                      sauce.userLiked.splice(element, 1);
-                      console.log("ID restant:" + sauce.userLiked);
-                      console.log("une remise à 0 OK ");
+                      sauce.userLiked.splice(index, 1);
                     } 
                   });
               } else {
@@ -131,15 +111,11 @@ exports.likeSauce = (req, res, next) => {
                   if (likerId == element) {
                     sauce.dislikes--;
                     sauce.userDisliked.splice(index, 1);
-                    console.log("ID restant :" + sauce.userDisliked);
-                    console.log("une remise à 0 OK ");
                   } else {
                     sauce.userLiked.forEach(function ( element, index) {
                       if (likerId == element) {
                         sauce.likes--;
                         sauce.userLiked.splice(index, 1);
-                        console.log("ID restant:" + sauce.userLiked);
-                        console.log("une remise à 0 OK ");
                       } 
                     });
                   }
